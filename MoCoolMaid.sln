@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoCoolMaid", "MoCoolMaid.csproj", "{717446B7-DCDF-4E8B-AEAC-D131B3618A03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{717446B7-DCDF-4E8B-AEAC-D131B3618A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{717446B7-DCDF-4E8B-AEAC-D131B3618A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{717446B7-DCDF-4E8B-AEAC-D131B3618A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{717446B7-DCDF-4E8B-AEAC-D131B3618A03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47EFD997-7473-49B1-A806-F6640D1939CC}
+	EndGlobalSection
+EndGlobal
