@@ -7,92 +7,110 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MoCoolMaid
+namespace MoCoolMaid.Admin
 {
 
 
-    public partial class updateprofile
+    public partial class manageAccount
     {
 
         /// <summary>
-        /// txtUptFirstName control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptFirstName;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// txtUptLastName control.
+        /// ddlAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptLastName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAccount;
 
         /// <summary>
-        /// txtUptEmail control.
+        /// gvs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptEmail;
+        protected global::System.Web.UI.WebControls.GridView gvs;
 
         /// <summary>
-        /// txtUptPhone control.
+        /// gvsUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptPhone;
+        protected global::System.Web.UI.WebControls.GridView gvsUsers;
 
         /// <summary>
-        /// txtUptStreet control.
+        /// lblLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptStreet;
+        protected global::System.Web.UI.WebControls.Label lblLastName;
 
         /// <summary>
-        /// txtUptCity control.
+        /// lblFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptCity;
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
 
         /// <summary>
-        /// txtUptZipCode control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptZipCode;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// txtUptBio control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUptBio;
+        protected global::System.Web.UI.WebControls.Label lblLocation;
 
         /// <summary>
-        /// btnUpdate control.
+        /// lblPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Label lblPhone;
+
+        /// <summary>
+        /// lblUserType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserType;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

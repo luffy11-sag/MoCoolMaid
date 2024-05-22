@@ -11,6 +11,11 @@ namespace MoCoolMaid.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["adminun"])))
+            {
+                Response.Redirect("~/adminlogin.aspx?url=" +
+               Server.UrlEncode(Request.Url.AbsoluteUri));
+            }
 
         }
     }

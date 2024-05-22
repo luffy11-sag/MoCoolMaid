@@ -20,6 +20,9 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         rel="stylesheet" />
 
+
+    <link href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css" rel="stylesheet" />
+
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
@@ -72,7 +75,6 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
             </Scripts>
         </asp:ScriptManager>
 
-
         <div class="hero_area">
             <!-- header section strats -->
             <header class="header_section">
@@ -92,9 +94,6 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/about.aspx">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/contactus.aspx">Contact Us</a>
                                     </li>
                                     <li class="nav-item">
                                         <asp:Panel runat="server" ID="pnlbrowsejobs" Visible="false">
@@ -140,26 +139,37 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                                     </ul>
                                 </asp:Panel>
 
-                                <asp:Panel runat="server" ID="pnlHOAction" Visible="false">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle"
-                                                data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                                                aria-expanded="false"><span class="caret"></span>Actions</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a class="dropdown-item" href="/HouseOwner/jobPost.aspx">Post Job</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="dropdown-item" href="/HouseOwner/viewHousekeeper.aspx">View Housekeepers</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="dropdown-item" href="/HouseOwner/viewPostedJobs.aspx">View Jobs posted</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <asp:Panel runat="server" ID="pnlHOAction" Visible="false" CssClass="pnlActions">
+                                    <div class="navbar-nav">
+                                        <div class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="caret"></span>Actions
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="/HouseOwner/jobPost.aspx">Post Job</a>
+                                                <a class="dropdown-item" href="/HouseOwner/viewHousekeeper.aspx">View Housekeepers</a>
+                                                <a class="dropdown-item" href="/HouseOwner/viewPostedJobs.aspx">View Jobs posted</a>
+                                                <a class="dropdown-item" href="/HouseOwner/approveApplication.aspx">View Applications</a>
+                                                <a class="dropdown-item" href="/HouseOwner/ratehk.aspx">Rate Housekeepers</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </asp:Panel>
+
+                                <asp:Panel runat="server" ID="pnlHKAction" Visible="false" CssClass="pnlActions">
+                                    <div class="navbar-nav">
+                                        <div class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="caret"></span>Actions
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="/Housekeeper/appliedjobs.aspx">View Jobs Applied</a>
+                                                <a class="dropdown-item" href="/Housekeeper/viewHouseOwner.aspx">House Owners</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+
 
                                 <asp:Panel runat="server" ID="pnlDashboard" Visible="false">
                                     <div class="collapse navbar-collapse">
@@ -171,12 +181,20 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                                     </div>
                                 </asp:Panel>
 
+                                <div class="d-flex justify-content-center">
+                                    <asp:Panel runat="server" ID="pnlWelcome" Visible="false">
+                                        <asp:Button runat="server" ID="btnWelcome" Text="" CssClass="btnLgout btn btn-outline-info btnWelcome" OnClick="btnWelcome_Click" />
+                                    </asp:Panel>
 
+                                    <asp:Panel runat="server" ID="lgregis">
+                                        <asp:Button runat="server" ID="btnlgout" OnClick="btnlgout_Click" Text="Log out"
+                                            CssClass="btnLgout btn btn-outline-info" Visible="false" CausesValidation="false" />
+                                    </asp:Panel>
 
-                                <asp:Panel runat="server" ID="lgregis">
-                                    <asp:Button runat="server" ID="btnlgout" OnClick="btnlgout_Click" Text="Log out"
-                                        CssClass="btnLgout btn btn-outline-info" Visible="false" CausesValidation="false" />
-                                </asp:Panel>
+                                    <asp:Panel runat="server" ID="pnlSignup">
+                                        <a href="/signup.aspx" class="signup-btn">Sign Up</a>
+                                    </asp:Panel>
+                                </div>
                             </div>
                         </nav>
                     </div>
@@ -185,8 +203,38 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
         </div>
 
         <asp:ContentPlaceHolder ID="maincontent" runat="server"></asp:ContentPlaceHolder>
-
-
+        <asp:Timer ID="Timer1" Interval="5000" runat="server"></asp:Timer>
+        <asp:Panel runat="server" ID="pnlAdvert">
+            <div class="container-fluid">
+                <div class="main-text1">
+                    <h2>Advertisement</h2>
+                </div>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="row justify-content-center align-items-center d-flex">
+                            <div class="adverts col-4">
+                                <div class="ads d-none d-xl-block">
+                                    <asp:AdRotator ID="adverts1" runat="server" AdvertisementFile="~/App_Data/ads.xml" />
+                                </div>
+                            </div>
+                            <div class="adverts col-4">
+                                <div class="ads d-none d-xl-block">
+                                    <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/App_Data/ads2.xml" />
+                                </div>
+                            </div>
+                            <div class="adverts col-4">
+                                <div class="ads d-none d-xl-block">
+                                    <asp:AdRotator ID="AdRotator2" runat="server" AdvertisementFile="~/App_Data/ads3.xml" />
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+        </asp:Panel>
         <section class="info_section layout_padding2">
             <div class="container">
                 <div class="row">
@@ -380,11 +428,14 @@ see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
     <!-- owl slider -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
     <!-- custom js -->
     <script type="text/javascript" src="~/Scripts/custom.js"></script>
 
+    <script src='<%= ResolveClientUrl("~/Scripts/datatablelib.js") %>'></script>
 </body>
 </html>

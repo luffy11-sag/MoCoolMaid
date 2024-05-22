@@ -15,6 +15,11 @@ namespace MoCoolMaid.HouseOwner
         private string _conString = WebConfigurationManager.ConnectionStrings["MoCoolMaidCS"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["hoemail"])))
+            {
+                Response.Redirect("~/houseownerlogin.aspx?url=" +
+               Server.UrlEncode(Request.Url.AbsoluteUri));
+            }
             if (!IsPostBack)
             {
                 bindJobCategory();
@@ -86,6 +91,7 @@ namespace MoCoolMaid.HouseOwner
                 while (dr.Read())
                 {
                     DateTime jobDeadline = (DateTime)dr["Job_Deadline"];
+                    ddlJobType.SelectedValue = dr["JCategory_ID"].ToString();
                     txtJobId.Text = dr["Job_ID"].ToString();
                     ddlJobType.SelectedIndex = Convert.ToInt32(dr["JCategory_ID"]);
                     txtJobDescription.Text = dr["Job_Desc"].ToString();

@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MoCoolMaid</RootNamespace>
     <AssemblyName>MoCoolMaid</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44368</IISExpressSSLPort>
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,10 +52,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -83,6 +82,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -106,10 +106,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.aspx" />
+    <Content Include="adminlogin.aspx" />
     <Content Include="Admin\dashboard.aspx" />
+    <Content Include="Admin\manageAccount.aspx" />
     <Content Include="Admin\manageCategory.aspx" />
+    <Content Include="Admin\manageJobs.aspx" />
+    <Content Include="Admin\statistics.aspx" />
+    <Content Include="App_Data\ads.xml" />
+    <Content Include="App_Data\ads2.xml" />
+    <Content Include="App_Data\ads3.xml" />
     <Content Include="Contact.aspx" />
-    <Content Include="contactus.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -131,22 +137,38 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="editUsername.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="home.aspx" />
+    <Content Include="housekeeperlogin.aspx" />
+    <Content Include="Housekeeper\appliedjobs.aspx" />
     <Content Include="Housekeeper\browseJobs.aspx" />
     <Content Include="Housekeeper\viewHouseOwner.aspx" />
+    <Content Include="houseownerlogin.aspx" />
+    <Content Include="HouseOwner\approveApplication.aspx" />
     <Content Include="HouseOwner\jobPost.aspx" />
+    <Content Include="HouseOwner\ratehk.aspx" />
+    <Content Include="HouseOwner\rating.aspx" />
     <Content Include="HouseOwner\updateJob.aspx" />
     <Content Include="HouseOwner\viewHousekeeper.aspx" />
     <Content Include="HouseOwner\viewPostedJobs.aspx" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\8.jpg" />
+    <Content Include="images\9.jpg" />
     <Content Include="images\Artorias 1.jpg" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\star-empty.png" />
     <Content Include="images\star-filled.png" />
     <Content Include="login.aspx" />
-    <Content Include="rating.aspx" />
+    <Content Include="resetPassword.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -182,6 +204,7 @@
     <Content Include="Content\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\datatablelib.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -210,15 +233,26 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="signup.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="testimonials.aspx" />
     <Content Include="uc\loginctrl.ascx" />
-    <Content Include="updateprofile.aspx" />
+    <Content Include="uc\loginctrl2.ascx" />
+    <Content Include="userInfo.aspx" />
+    <Content Include="viewRatings.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="viewTestimonial.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="MasterPage.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminlogin.aspx.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminlogin.aspx.designer.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,12 +260,33 @@
     <Compile Include="Admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\manageAccount.aspx.cs">
+      <DependentUpon>manageAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\manageAccount.aspx.designer.cs">
+      <DependentUpon>manageAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\manageCategory.aspx.cs">
       <DependentUpon>manageCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\manageCategory.aspx.designer.cs">
       <DependentUpon>manageCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\manageJobs.aspx.cs">
+      <DependentUpon>manageJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\manageJobs.aspx.designer.cs">
+      <DependentUpon>manageJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\statistics.aspx.cs">
+      <DependentUpon>statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\statistics.aspx.designer.cs">
+      <DependentUpon>statistics.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="about.aspx.cs">
@@ -249,19 +304,19 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="contactus.aspx.cs">
-      <DependentUpon>contactus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="contactus.aspx.designer.cs">
-      <DependentUpon>contactus.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editUsername.aspx.cs">
+      <DependentUpon>editUsername.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editUsername.aspx.designer.cs">
+      <DependentUpon>editUsername.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -272,6 +327,20 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="housekeeperlogin.aspx.cs">
+      <DependentUpon>housekeeperlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="housekeeperlogin.aspx.designer.cs">
+      <DependentUpon>housekeeperlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Housekeeper\appliedjobs.aspx.cs">
+      <DependentUpon>appliedjobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Housekeeper\appliedjobs.aspx.designer.cs">
+      <DependentUpon>appliedjobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Housekeeper\browseJobs.aspx.cs">
       <DependentUpon>browseJobs.aspx</DependentUpon>
@@ -287,12 +356,40 @@
     <Compile Include="Housekeeper\viewHouseOwner.aspx.designer.cs">
       <DependentUpon>viewHouseOwner.aspx</DependentUpon>
     </Compile>
+    <Compile Include="houseownerlogin.aspx.cs">
+      <DependentUpon>houseownerlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="houseownerlogin.aspx.designer.cs">
+      <DependentUpon>houseownerlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HouseOwner\approveApplication.aspx.cs">
+      <DependentUpon>approveApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HouseOwner\approveApplication.aspx.designer.cs">
+      <DependentUpon>approveApplication.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HouseOwner\jobPost.aspx.cs">
       <DependentUpon>jobPost.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HouseOwner\jobPost.aspx.designer.cs">
       <DependentUpon>jobPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HouseOwner\ratehk.aspx.cs">
+      <DependentUpon>ratehk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HouseOwner\ratehk.aspx.designer.cs">
+      <DependentUpon>ratehk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HouseOwner\rating.aspx.cs">
+      <DependentUpon>rating.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HouseOwner\rating.aspx.designer.cs">
+      <DependentUpon>rating.aspx</DependentUpon>
     </Compile>
     <Compile Include="HouseOwner\updateJob.aspx.cs">
       <DependentUpon>updateJob.aspx</DependentUpon>
@@ -323,12 +420,12 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rating.aspx.cs">
-      <DependentUpon>rating.aspx</DependentUpon>
+    <Compile Include="resetPassword.aspx.cs">
+      <DependentUpon>resetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="rating.aspx.designer.cs">
-      <DependentUpon>rating.aspx</DependentUpon>
+    <Compile Include="resetPassword.aspx.designer.cs">
+      <DependentUpon>resetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="signup.aspx.cs">
       <DependentUpon>signup.aspx</DependentUpon>
@@ -358,6 +455,13 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="testimonials.aspx.cs">
+      <DependentUpon>testimonials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testimonials.aspx.designer.cs">
+      <DependentUpon>testimonials.aspx</DependentUpon>
+    </Compile>
     <Compile Include="uc\loginctrl.ascx.cs">
       <DependentUpon>loginctrl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,12 +469,26 @@
     <Compile Include="uc\loginctrl.ascx.designer.cs">
       <DependentUpon>loginctrl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="updateprofile.aspx.cs">
-      <DependentUpon>updateprofile.aspx</DependentUpon>
+    <Compile Include="uc\loginctrl2.ascx.cs">
+      <DependentUpon>loginctrl2.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="updateprofile.aspx.designer.cs">
-      <DependentUpon>updateprofile.aspx</DependentUpon>
+    <Compile Include="uc\loginctrl2.ascx.designer.cs">
+      <DependentUpon>loginctrl2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="userInfo.aspx.cs">
+      <DependentUpon>userInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userInfo.aspx.designer.cs">
+      <DependentUpon>userInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewRatings.aspx.cs">
+      <DependentUpon>viewRatings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewRatings.aspx.designer.cs">
+      <DependentUpon>viewRatings.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -379,10 +497,17 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="viewTestimonial.aspx.cs">
+      <DependentUpon>viewTestimonial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewTestimonial.aspx.designer.cs">
+      <DependentUpon>viewTestimonial.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="cv\" />
+    <Folder Include="images\testimonial\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

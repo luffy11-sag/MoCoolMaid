@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="maincontent" runat="server">
-    <div class="container" id="manageCat">
-        <div class="centered-content">
+        <div class="container-fluid">
             <!-- Form for Category ID and Category Name -->
             <asp:Panel ID="pnlCategoryForm" runat="server">
                 <div class="mb-3 catForm">
@@ -43,5 +42,4 @@
                 </Columns>
             </asp:GridView>
         </div>
-    </div>
 </asp:Content>

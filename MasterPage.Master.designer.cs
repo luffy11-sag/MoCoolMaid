@@ -69,6 +69,15 @@ namespace MoCoolMaid
         protected global::System.Web.UI.WebControls.Panel pnlHOAction;
 
         /// <summary>
+        /// pnlHKAction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHKAction;
+
+        /// <summary>
         /// pnlDashboard control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,24 @@ namespace MoCoolMaid
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlDashboard;
+
+        /// <summary>
+        /// pnlWelcome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlWelcome;
+
+        /// <summary>
+        /// btnWelcome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWelcome;
 
         /// <summary>
         /// lgregis control.
@@ -96,6 +123,15 @@ namespace MoCoolMaid
         protected global::System.Web.UI.WebControls.Button btnlgout;
 
         /// <summary>
+        /// pnlSignup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSignup;
+
+        /// <summary>
         /// maincontent control.
         /// </summary>
         /// <remarks>
@@ -103,6 +139,60 @@ namespace MoCoolMaid
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder maincontent;
+
+        /// <summary>
+        /// Timer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer1;
+
+        /// <summary>
+        /// pnlAdvert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAdvert;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// adverts1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.AdRotator adverts1;
+
+        /// <summary>
+        /// AdRotator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.AdRotator AdRotator1;
+
+        /// <summary>
+        /// AdRotator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.AdRotator AdRotator2;
 
         /// <summary>
         /// hoLogin control.

@@ -20,7 +20,7 @@ namespace MoCoolMaid
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            {             
                 if (Request.Cookies["houseowneremail"] != null && Request.Cookies["houseownerpassword"] != null)
                 {                   
                     hoLogin.Email = Request.Cookies["houseowneremail"].Value;
@@ -41,6 +41,9 @@ namespace MoCoolMaid
                 lgregis.CssClass = "nav-item";
                 btnlgout.Visible = true;
                 pnlHOAction.Visible = true;
+                pnlWelcome.Visible = true;
+                btnWelcome.Text = Session["hofname"].ToString() + " " + Session["holname"].ToString();
+                pnlSignup.Visible = false;
             }
 
             if (Session["hkemail"] != null)
@@ -51,6 +54,10 @@ namespace MoCoolMaid
                 btnlgout.Visible = true;
                 pnlbrowsejobs.Visible = true;
                 pnlBrwoseHO.Visible = true;
+                pnlHKAction.Visible = true;
+                pnlWelcome.Visible = true;
+                btnWelcome.Text = Session["hkfname"].ToString() + " " + Session["hklname"].ToString();
+                pnlSignup.Visible = false;
             }
 
             if (Session["adminun"] != null)
@@ -60,6 +67,8 @@ namespace MoCoolMaid
                 lgregis.CssClass = "nav-item";
                 btnlgout.Visible = true;
                 pnlDashboard.Visible = true;
+                pnlAdvert.Visible = false;
+                pnlSignup.Visible = false;
             }         
         }
 
@@ -108,6 +117,9 @@ namespace MoCoolMaid
                         Session["hoid"] = dr["HO_ID"];
                         Session["hoemail"] = dr["User_Email"];
                         Session["hopassword"] = dr["User_Password"];
+                        Session["userid"] = dr["User_ID"];
+                        Session["hofname"] = dr["User_FName"];
+                        Session["holname"] = dr["User_LName"];
                         Response.Redirect(ReturnUrl);
                     }
                     else
@@ -115,8 +127,12 @@ namespace MoCoolMaid
                         Session["hoid"] = dr["HO_ID"];
                         Session["hoemail"] = dr["User_Email"];
                         Session["hopassword"] = dr["User_Password"];
+                        Session["userid"] = dr["User_ID"];
+                        Session["hofname"] = dr["User_FName"];
+                        Session["holname"] = dr["User_LName"];
                         Response.Redirect("~/home.aspx");
-                    }
+                        
+                    }                   
                 }
                 else
                 {
@@ -183,16 +199,25 @@ namespace MoCoolMaid
                     string ReturnUrl = Convert.ToString(Request.QueryString["qs"]);
                     if (!string.IsNullOrEmpty(ReturnUrl))
                     {
+                        Session["hkid"] = dr["HK_ID"];
                         Session["hkemail"] = dr["User_Email"];
                         Session["hkpassword"] = dr["User_Password"];
+                        Session["userid"] = dr["User_ID"];
+                        Session["hkfname"] = dr["User_FName"];
+                        Session["hklname"] = dr["User_LName"];
                         Response.Redirect(ReturnUrl);
                     }
                     else
                     {
+                        Session["hkid"] = dr["HK_ID"];
                         Session["hkemail"] = dr["User_Email"];
                         Session["hkpassword"] = dr["User_Password"];
+                        Session["userid"] = dr["User_ID"];
+                        Session["hkfname"] = dr["User_FName"];
+                        Session["hklname"] = dr["User_LName"];
                         Response.Redirect("~/home.aspx");
                     }
+                    
                 }
                 else
                 {
@@ -298,6 +323,11 @@ namespace MoCoolMaid
         protected void btnlgout_Click(object sender, EventArgs e)
         {
             logout();
+        }
+
+        protected void btnWelcome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/userInfo.aspx");
         }
     }
 }

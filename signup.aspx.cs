@@ -18,11 +18,19 @@ namespace MoCoolMaid
         private string _conString = WebConfigurationManager.ConnectionStrings["MoCoolMaidCS"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack) 
+            if (Session["hoid"] != null || Session["hkid"] != null || Session["adminun"] != null)
+            {
+                Response.Redirect("~/home.aspx");
+            }
+            if (!IsPostBack) 
             {
                 fuSection.Visible = false;
+                bindDistrict();
+
+                ListItem defDistrict = new ListItem("Select District", "-1");
+                ddlDistrict.Items.Insert(0, defDistrict);
             }
-                      
+
         }
 
         protected void ddlRole_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,8 +47,11 @@ namespace MoCoolMaid
         {
             string filecv = "";
             string filepp = "";
+            string strDate = txtDateOfBirth.Text;
+            DateTime dt = Convert.ToDateTime(strDate);
             if (ddlRole.SelectedValue == "2")
             {
+                
                 if (fuCV.HasFile)
                 {
                     if (CheckFileTypeCV(fuCV.FileName))
@@ -97,11 +108,14 @@ namespace MoCoolMaid
                 lblTxtMessage.ForeColor = System.Drawing.Color.Red;
                 txtEmail.Focus();
             }
+            else if (!chkDate(dt))
+            {
+                lblTxtMessage.Text = "Invalid Date of Birth. Must be 18 or higher to sign up!";
+            }
             else
             {
                 dr.Close();
-                string strDate = txtDateOfBirth.Text;
-                DateTime dt = Convert.ToDateTime(strDate);
+                
                 SqlCommand scmd = new SqlCommand();
                 scmd.Connection = con;
                 scmd.CommandType = CommandType.Text;
@@ -112,7 +126,7 @@ namespace MoCoolMaid
                 scmd.Parameters.AddWithValue("@gender", rblGender.Text);
                 scmd.Parameters.AddWithValue("@uemail", txtEmail.Text.Trim());
                 scmd.Parameters.AddWithValue("@pwd", Encrypt(txtPassword.Text));
-                scmd.Parameters.AddWithValue("@city", txtCity.Text.Trim());
+                scmd.Parameters.AddWithValue("@city", ddlDistrict.SelectedValue);
                 scmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());               
                 scmd.ExecuteNonQuery();
 
@@ -202,6 +216,45 @@ namespace MoCoolMaid
                 }
             }
             return clearText;
+        }
+
+        protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bindDistrict()
+        {
+            SqlConnection con = new SqlConnection(_conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM tblLocation";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dtDistrict = new DataTable();
+            using (da)
+            {
+                da.Fill(dtDistrict);
+            }
+            ddlDistrict.DataSource = dtDistrict;
+            ddlDistrict.DataTextField = "District";
+            ddlDistrict.DataValueField = "Loc_ID";
+            ddlDistrict.DataBind();
+        }
+
+        private Boolean chkDate(DateTime date)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime eighteenYearsAgo = currentDate.AddYears(-18);
+            if (date >= eighteenYearsAgo)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

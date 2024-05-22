@@ -11,35 +11,26 @@ namespace MoCoolMaid
 {
 
 
-    public partial class rating
+    public partial class testimonials
     {
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// fuPP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.FileUpload fuPP;
 
         /// <summary>
-        /// Rating1 control.
+        /// txtTestimonial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.Rating Rating1;
-
-        /// <summary>
-        /// txtReview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReview;
+        protected global::System.Web.UI.WebControls.TextBox txtTestimonial;
 
         /// <summary>
         /// btnSubmit control.
@@ -49,5 +40,14 @@ namespace MoCoolMaid
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// lblTxtMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTxtMessage;
     }
 }

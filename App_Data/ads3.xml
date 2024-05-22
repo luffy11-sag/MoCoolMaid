@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <!-- Banner Advertisements -->
+  <Ad Group="Group1">
+    <ImageUrl>~/images/7.jpg</ImageUrl>
+    <Width>175</Width>
+    <Height>260</Height>
+    <NavigateUrl>http://www.mno.com</NavigateUrl>
+    <AlternateText>Banner Advertisement 1</AlternateText>
+    <Impressions>20</Impressions> <!-- Frequency of ads -->
+    keyword=x
+  </Ad>
+  <Ad Group="Group1">
+    <ImageUrl>~/images/8.jpg</ImageUrl>
+    <Width>175</Width>
+    <Height>260</Height>
+    <NavigateUrl>http://www.xyz.com</NavigateUrl>
+    <AlternateText>Banner Advertisement 2</AlternateText>
+    <Impressions>20</Impressions>
+  </Ad>
+  <Ad Group="Group1">
+    <ImageUrl>~/images/9.jpg</ImageUrl>
+    <Width>175</Width>
+    <Height>260</Height>
+    <NavigateUrl>http://www.abc.com</NavigateUrl>
+    <AlternateText>Banner Advertisement 3</AlternateText>
+    <Impressions>20</Impressions>
+  </Ad>
+</Advertisements>

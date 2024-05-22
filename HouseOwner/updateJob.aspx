@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="maincontent" runat="server">
     <div class="postJob-box">
-        <div class="postJob-container">
+        <div class="form-group">
             <h2 style="font-family: Montserrat; text-align: center;">Edit Job Details</h2>
             <div class="postJob-field">
                 <asp:Label runat="server" AssociatedControlID="txtJobID"></asp:Label>

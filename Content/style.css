@@ -30,6 +30,7 @@ body {
     padding-bottom: 90px;
 }
 
+
 .heading_container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -233,6 +234,7 @@ a:focus {
     right: 0;
 }
 
+
 .btnLgout {
     color: #04233b;
     border-color: #04233b;
@@ -244,6 +246,18 @@ a:focus {
     color: #F9F6F0;
 }
 
+.btnWelcome {
+    margin-right: 12px;
+}
+
+@media (max-width: 767px) {
+    .btnLgout,
+    .btnWelcome {
+        margin: 10px; /* Adjust margin as needed */
+    }
+}
+
+
 /*end header section*/
 .masthead {
     background-image: url('../images/banner.jpg');
@@ -254,10 +268,10 @@ a:focus {
     text-shadow: 2px 2px 2px rgba(0,0,0,.2);
 }
 
-.masthead h1 {
-    font-size: 4rem;
-    font-weight: 500;
-}
+    .masthead h1 {
+        font-size: 4rem;
+        font-weight: 500;
+    }
 
 .color-overlay {
     position: absolute;
@@ -271,9 +285,9 @@ a:focus {
         min-height: 30vh;
     }
 
-    .masthead h1 {
-        font-size: calc(1.525rem + 3.3vw);
-    }
+        .masthead h1 {
+            font-size: calc(1.525rem + 3.3vw);
+        }
 }
 
 .service_section {
@@ -493,10 +507,17 @@ a:focus {
 }
 
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
+    width: 40%;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.txtEmail, .txtPass {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .modal-body {
@@ -747,21 +768,21 @@ a:focus {
 }
 
 .postJob-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Styles for the form container */
-.postJob-container {
-    background-color: #f1f1f1;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 800px;
     width: 90%;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 40px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .postJob-box {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
 }
 
 .postJob-field label{
@@ -781,6 +802,18 @@ a:focus {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.JobsDelMsg {
+    font-weight: 700;
+    font-size: 30px;
+    font-family: Montserrat;
+    text-align: center;
+}
+
+.dropdowndropdownManageAcc {
+    width: 50%;
+    margin-bottom: 40px;
 }
 
 .rating-box {
@@ -845,6 +878,68 @@ a:focus {
 
 .WaitingStars {
     background-image: url('../images/star-filled.png');
+}
+
+.viewrating-container {
+    display: inline-block;
+}
+
+.date-container {
+    display: block;
+}
+
+.adverts {
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+}
+
+.viewpic-container {
+    text-align: center;
+}
+
+.testi {
+    width: 60%;
+}
+
+.viewTestiBtn {
+    text-align: center;
+}
+
+.viewTesti {
+    border-style: solid;
+    border-color: #04233b;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: Montserrat;
+    transition: 0.4s ease;
+}
+
+.viewTesti:hover {
+    background-color: #04233b;
+    color: aliceblue;
+}
+
+.rating-card {
+    background-color: #ecf4f9;
+}
+
+.main-text-rating {
+    text-align: center;
+}
+
+.rating-hk {
+    color: #04233b;
+    font-size: 30px;
+    font-family: Montserrat;
+    margin-bottom: 20px;
+}
+
+.signup-btn {
+    font-family: Montserrat;
+    color: #04233b;
+    font-weight: 600;
 }
 
 /*Browse Jobs*/
@@ -918,10 +1013,32 @@ a:focus {
     color: #04233b;
 }
 
-.centered-content {
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.piechart {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .piechart {
+        max-width: 100%; /* Make the pie chart take up 100% of the container width */
+    }
+}
+
+.stats {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: Montserrat;
+    color: #333;
+}
+
+.statsection {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.statcard {
+    margin-bottom: 10px;
 }
 
 .catForm {
@@ -998,12 +1115,209 @@ a:focus {
     background-color: #04233b;
 }
 
+.panelMessage {
+    margin-top: 300px;
+    margin-bottom: 300px;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.default-message {
+    text-align: center;
+}
+
+#maincontent_DataPager1 {
+    width: 100%; /* Adjust the width as needed */
+    text-align: center;
+    display: block;
+    margin: 0 auto; /* This centers the block container */
+}
+
+#maincontent_DataPager1 span,
+#maincontent_DataPager1 a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    transition: 0.4s ease;
+}
+
+#maincontent_DataPager1 a:hover {
+    background-color: #04233b;
+    color: aliceblue;
+}
+
+#maincontent_DataPager1 a:current {
+    background-color: #04233b;
+    color: #fff;
+}
+
+.cvLink {
+    font-weight: 700;
+    color: #04233b;
+}
+
+.hkBadge {
+    font-family: Montserrat;
+    background-color: cornflowerblue;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.hoBadge {
+    font-family: Montserrat;
+    background-color: cadetblue;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.cvLink:hover {   
+    color: darkblue;
+}
+
+.profile-section i, a {
+    color: #04233b;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.filterHK {
+    margin-bottom: 30px;
+    width: 96%;
+}
+
+.filter-box {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.filter-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filter-content {
+    text-align: left;
+}
+
+.filterddl {
+    margin-top: 20px;
+    width: calc(60% - 5px);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+    .filterddl {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+.edit-btn,
+.reset-btn,
+.view-cv-btn,
+.change-cv-btn {
+    background-color: #04233b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reset-btn {
+    margin-top: 10px;
+}
+
+.edit-btn {
+    margin-top: 10px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.profile-btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item i {
+    color: black;
+    margin-left: 5px;
+}
+
+.info-item i:hover {
+    color: #004C6D;
+}
+
+.editPicLink {
+    background-color: #004C6D;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.save-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button {
+    background-color: #004C6D;
+    color: #fff;
+}
+
+.cancel-button {
+    background-color: #004C6D;
+    color: #fff;
+}
+
+.save-button:hover,
+.cancel-button:hover {
+    background-color: #04233b;
+}
+
 .main-text h2 {
     font-weight: 500;
     font-family: "Montserrat";
     text-align: center;
     margin-top: 20px;
     color: #04233b;
+}
+
+.ratings{
+    width: 60%;
 }
 
 .contact .info .box {

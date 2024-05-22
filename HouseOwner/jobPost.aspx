@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="maincontent" runat="server">
     <div class="postJob-box">
-        <div class="postJob-container">
+        <div class="form-group">
             <h2 style="font-family: Montserrat; text-align: center;">Post a Job</h2>
             <div class="postJob-field">
                 <asp:Label runat="server" AssociatedControlID="ddlJobType">Job Type</asp:Label>

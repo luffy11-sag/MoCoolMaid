@@ -14,6 +14,11 @@ namespace MoCoolMaid.HouseOwner
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["hoemail"])))
+            {
+                Response.Redirect("~/houseownerlogin.aspx?url=" +
+               Server.UrlEncode(Request.Url.AbsoluteUri));
+            }
             if (!IsPostBack)
             {
                 bindPostedJobs();
@@ -66,6 +71,60 @@ namespace MoCoolMaid.HouseOwner
                     return "Vacant";
                 default:
                     return "Unknown";
+            }
+        }
+
+        protected void lnkChangeStatus_Click(object sender, EventArgs e)
+        {
+            LinkButton lnkChangeStatus = (LinkButton)sender;
+            string jobID = lnkChangeStatus.CommandArgument;          
+            txtJobID.Text = jobID;
+            int job_id = Convert.ToInt32(jobID);
+            SqlConnection con = new SqlConnection(_conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@jobid", job_id);
+            cmd.CommandText = "SELECT * FROM tblJob WHERE Job_ID = @jobid";
+            SqlDataReader dr;
+
+            con.Open();
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {               
+                ddlStatus.SelectedValue = dr["Job_Status"].ToString();
+            }
+            con.Close();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "statusModal();", true);
+        }
+
+        protected void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            int job_id = Convert.ToInt32(txtJobID.Text);
+            Boolean IsUpdated = false;
+            SqlConnection con = new SqlConnection(_conString);
+            SqlCommand scmd = new SqlCommand();
+            scmd.CommandType = CommandType.Text;
+
+            scmd.CommandText = "UPDATE tblJob SET Job_Status = @status WHERE Job_ID = @jobid";
+            scmd.Parameters.AddWithValue("@jobid", job_id);
+            scmd.Parameters.AddWithValue("@status", ddlStatus.SelectedValue);
+            scmd.Connection = con;
+            con.Open();
+
+            IsUpdated = scmd.ExecuteNonQuery() > 0;
+
+            con.Close();
+            if (IsUpdated)
+            {
+                bindPostedJobs();
+            }
+            else
+            {
+                lblMsg.Text = "Error while updating Status";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
