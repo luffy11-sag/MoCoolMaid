@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using BCrypt;
 namespace MoCoolMaid
 {
     public partial class signup : System.Web.UI.Page
@@ -125,7 +125,9 @@ namespace MoCoolMaid
                 scmd.Parameters.AddWithValue("@dob", dt);
                 scmd.Parameters.AddWithValue("@gender", rblGender.Text);
                 scmd.Parameters.AddWithValue("@uemail", txtEmail.Text.Trim());
-                scmd.Parameters.AddWithValue("@pwd", Encrypt(txtPassword.Text));
+
+                //here we have used the function HashPassword to hash the password.
+                scmd.Parameters.AddWithValue("@pwd", HashPassword(txtPassword.Text));
                 scmd.Parameters.AddWithValue("@city", ddlDistrict.SelectedValue);
                 scmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());               
                 scmd.ExecuteNonQuery();
@@ -160,6 +162,17 @@ namespace MoCoolMaid
             }
         }
 
+
+          //method to hash the password
+   public string HashPassword(string password)
+   {
+   string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt());
+
+   return hashedPassword;
+   }
+
+
+
         bool CheckFileTypeCV(string fileName)
         {
             string ext = Path.GetExtension(fileName);
@@ -192,7 +205,7 @@ namespace MoCoolMaid
             }
         }
 
-        public string Encrypt(string clearText)
+       /* public string Encrypt(string clearText)
         {
             // defining encrytion key
             string EncryptionKey = "MAKV2SPBNI99212";
@@ -217,6 +230,7 @@ namespace MoCoolMaid
             }
             return clearText;
         }
+*/
 
         protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
